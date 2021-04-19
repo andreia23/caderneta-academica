@@ -1,9 +1,14 @@
 package br.edu.ifpb.pweb2.bean;
 
+import javax.el.ELContext;
+import javax.el.ExpressionFactory;
+import javax.el.ValueExpression;
+import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.servlet.http.HttpSession;
 
 public class GenericAcademicoBean {
 
@@ -39,5 +44,20 @@ public class GenericAcademicoBean {
 	protected void keepMessages() {
 		this.getFlash().setKeepMessages(true);
 	}
+	
+	public void setValueOf(String elExpression, Class<?> clazz, Object value) {
+		FacesContext current = FacesContext.getCurrentInstance();
+		ELContext elContext = current.getELContext();
+		Application app = current.getApplication();
+		ExpressionFactory fac = app.getExpressionFactory();
+		ValueExpression ve = fac.createValueExpression(elContext, elExpression, clazz);
+		ve.setValue(current.getELContext(), value);		
+	}
+	
+	public void invalidateSession() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+        ((HttpSession)facesContext.getExternalContext().getSession(false)).invalidate();
+	}
+	
 
 }

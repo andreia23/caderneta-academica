@@ -1,5 +1,4 @@
-.messages ul {
-    list-style-type: none;
-    margin: 0;
+ul.messages{
+    list-style: none;
     padding: 0;
 }

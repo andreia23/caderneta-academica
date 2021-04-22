@@ -11,30 +11,27 @@
     <title>Alunos</title>
     <h:outputStylesheet library="bootstrap" name="css/bootstrap.css" target="head"/>
     <h:outputStylesheet library="css" name="global.css" target="head"/>
+    <h:outputStylesheet library="css" name="notasalunos.css" target="head"/>
 </h:head>
 <h:body class="d-flex">
 
-    <div class="container shadow-lg p-3 mb-5 bg-white rounded align-self-center">
-
+    <div class="container shadow-lg p-4 mb-5 bg-white rounded align-self-center">
         <h:form>
             <h:dataTable value="#{notasListaBean.alunos}" var="aluno" styleClass="table table-striped">
                 <h:column headerClass="w-50">
-                    <f:facet name="header">Nome</f:facet>
+                    <f:facet name="header">NOME</f:facet>
                     #{aluno.nome}
                 </h:column>
 
                 <h:column headerClass="w-50">
-                    <f:facet name="header">Data de Nasc.</f:facet>
+                    <f:facet name="header">DATA DE NASCIMENTO</f:facet>
                     #{notasListaBean.formatarData(aluno.dataNascimento)}
                 </h:column>
+
                 <h:column>
-                    <h:commandButton action="#{notasListaBean.editar(aluno)}" value="Editar" styleClass="btn btn-secondary" />
+                    <h:commandButton action="#{notasListaBean.editar(aluno)}" value="NOTAS" styleClass="btn btn-outline-info" />
                 </h:column>
-
-
             </h:dataTable>
-
-
         </h:form>
     </div>
 </h:body>

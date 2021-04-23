@@ -38,7 +38,7 @@ public class Aluno implements Serializable {
 	private Situations situacao;
 
 	public Aluno() {
-
+		this.situacao = Situations.MT;
 	}
 
 	public Aluno(String nome, Date dataNascimento) {

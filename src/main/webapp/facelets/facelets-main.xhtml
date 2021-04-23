@@ -37,8 +37,11 @@
               </ul>
 			
               <div>
-                <h:outputText value="#{loginBean.usuarioLogado.nome}" />
-                <h:commandLink class="text-light" action="#{sessionScope.logout}" value="Sair"/>
+
+                <h:outputText class="ml-2" value="#{loginBean.usuarioLogado.nome}" />
+                <h:commandLink action="#{loginBean.logout}" value="Sair"/>
+
+              
               </div>
             </h:form>
           </nav>

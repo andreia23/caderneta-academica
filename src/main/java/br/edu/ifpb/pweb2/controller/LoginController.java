@@ -9,23 +9,26 @@ import br.edu.ifpb.pweb2.dao.UsuarioAdminDAO;
 import br.edu.ifpb.pweb2.model.UsuarioAdmin;
 import br.edu.ifpb.pweb2.util.PasswordUtil;
 
-
 public class LoginController implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private UsuarioAdminDAO usuarioDAO;
-	
+
 	@Transactional
 	public UsuarioAdmin insert(UsuarioAdmin admin) {
+		String encrip = (passwordUtil.encryptMD5(admin.getSenha()));
+		admin.setSenha(encrip);
 		return usuarioDAO.insert(admin);
 	}
-	
+
 	private PasswordUtil passwordUtil;
-	
+
 	public UsuarioAdmin isValido(String usuario, String senha) {
+
 		String encrip = (passwordUtil.encryptMD5(senha));
 		UsuarioAdmin user = usuarioDAO.findByLogin(usuario);
+				
 		if (user == null || !encrip.equals(user.getSenha())) {
 			user = null;
 		}

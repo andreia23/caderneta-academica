@@ -44,32 +44,36 @@ public class NotasListaBean extends GenericAcademicoBean implements Serializable
         return "/notas/editar?faces-redirect=true";
     }
 
-    public String salvar(Aluno a) {
-        Double media = a.getMedia();
-        if (a.getNotaFinal() != null) {
-            double nota = ((media * 60) + (a.getNotaFinal().doubleValue() * 40)) / 100;
-            if (nota >= 50) {
-                a.setSituacao(Situations.AP);
+    public String salvar() {
+        for (Aluno a: this.alunos)
+        {
+            Double media = a.getMedia();
+            if (a.getNotaFinal() != null) {
+                double nota = ((media * 60) + (a.getNotaFinal().doubleValue() * 40)) / 100;
+                if (nota >= 50) {
+                    a.setSituacao(Situations.AP);
+                }
+                else {
+                    a.setSituacao(Situations.RP);
+                }
+            } else if (media != null && a.getFaltas() != null) {
+                if (a.getFaltas() >= 25) {
+                    a.setSituacao(Situations.RF);
+                }
+                else if (media < 40) {
+                    a.setSituacao(Situations.RP);
+                }
+                else if (media < 70) {
+                    a.setSituacao(Situations.FN);
+                }
+                else {
+                    a.setSituacao(Situations.AP);
+                }
             }
-            else {
-                a.setSituacao(Situations.RP);
-            }
-        } else if (media != null && a.getFaltas() != null) {
-            if (a.getFaltas() >= 25) {
-                a.setSituacao(Situations.RF);
-            }
-            else if (media < 40) {
-                a.setSituacao(Situations.RP);
-            }
-            else if (media < 70) {
-                a.setSituacao(Situations.FN);
-            }
-            else {
-                a.setSituacao(Situations.AP);
-            }
-        }
 
-        this.controllerAluno.saveOrUpdate(a);
+
+            this.controllerAluno.saveOrUpdate(a);
+        }
         return "/notas?faces-redirect=true";
     }
 }

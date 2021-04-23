@@ -19,6 +19,7 @@ public class LoginBean extends GenericAcademicoBean implements Serializable {
 
 	private String senha;
 
+	@Inject
 	private UsuarioAdmin usuarioLogado;
 
 	@Inject
@@ -26,10 +27,19 @@ public class LoginBean extends GenericAcademicoBean implements Serializable {
 
 	public String autenticar() {
 		String proxView = null;
-		if ((usuarioLogado = loginController.isValido(usuario, senha)) != null) {
+		
+		if (loginController.isValido(usuarioLogado.getNome(), usuarioLogado.getSenha()) == null) {
+			loginController.insert(usuarioLogado);
+			proxView = "/main?faces-redirect=true";
+
+		}
+
+		else if ((usuarioLogado = loginController.isValido(usuarioLogado.getNome(), usuarioLogado.getSenha())) != null) {
 			this.setValueOf("#{sessionScope.loginUser}", String.class, usuarioLogado.getNome());
 			proxView = "/main?faces-redirect=true";
-		} else {
+		}
+
+		else {
 			this.addErrorMessage("Login inv�lido.");
 		}
 

@@ -11,12 +11,13 @@
 		<non-jta-data-source>java:/caderneta-academica</non-jta-data-source>
 		
 		<class>br.edu.ifpb.pweb2.model.Aluno</class>
+		<class>br.edu.ifpb.pweb2.model.UsuarioAdmin</class>
 		
 		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 			<property name="hibernate.jdbc.batch_size" value="2000" />
 		</properties>
 	

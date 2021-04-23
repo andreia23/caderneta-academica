@@ -17,7 +17,7 @@
 
             <h:form class="collapse navbar-collapse d-flex justify-content-between">
             <div class="text-light">
-            <p>Projeto Atena</p>
+            <a style="text-decoration: none" href="main.xhtml"><p class="text-light">Projeto Atena</p></a>
             </div>
               <ul class="navbar-nav justify-content-center">
                 <li class="nav-item dropdown">
@@ -39,7 +39,7 @@
               <div>
 
                 <h:outputText class="ml-2" value="#{loginBean.usuarioLogado.nome}" />
-                <h:commandLink action="#{loginBean.logout}" value="Sair"/>
+                <h:commandLink class="text-light" action="#{loginBean.logout}" value="Sair"/>
 
               
               </div>

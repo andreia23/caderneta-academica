@@ -12,20 +12,25 @@
 <body>
 <ui:composition template="facelets/facelets-main.xhtml">
     <ui:define name="main">
-        <div class="h-100 d-flex flex-column justify-content-center align-items-center bg-secondary text-light">
+        <div class="h-100 d-flex flex-column justify-content-center align-items-center bg-light text-light">
             <h:messages/>
+            
+            <div
+		        class="p-3"
+		        style="border-radius: 20px; box-shadow: 1px 1px 10px #888888; width: 800px">
             <h:dataTable
-                    styleClass="table table-striped table-bordered table-dark w-75"
+                    styleClass="table table-striped table-bordered table-light"
                     value="#{relatorioAlunoBean.alunos}"
-                    var="estudante">
+                    var="estudante"
+              		style="border-radius: 20px; color: #547E9E">
 
                 <h:column>
-                    <f:facet name="header">Nome</f:facet>
+                    <f:facet name="header" style="color: #868B90">Nome</f:facet>
                     #{estudante.nome}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Data Nascimento</f:facet>
+                    <f:facet name="header" style="color: #868B90">Data Nascimento</f:facet>
                     <h:outputText value="#{estudante.dataNascimento}">
 
                         <f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy"/>
@@ -33,41 +38,42 @@
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Nota 1</f:facet>
+                    <f:facet name="header" style="color: #868B90">Nota 1</f:facet>
                     #{estudante.nota1}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Nota 2</f:facet>
+                    <f:facet name="header" style="color: #868B90">Nota 2</f:facet>
                     #{estudante.nota2}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Nota 3</f:facet>
+                    <f:facet name="header" style="color: #868B90">Nota 3</f:facet>
                     #{estudante.nota3}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Final</f:facet>
+                    <f:facet name="header" style="color: #868B90">Final</f:facet>
                     #{estudante.notaFinal}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Média</f:facet>
+                    <f:facet name="header" style="color: #868B90">Média</f:facet>
                     #{estudante.media}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Faltas</f:facet>
+                    <f:facet name="header" style="color: #868B90">Faltas</f:facet>
                     #{estudante.faltas}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Situação</f:facet>
+                    <f:facet name="header" style="color: #868B90">Situação</f:facet>
                     #{estudante.situacao}
                 </h:column>
 
             </h:dataTable>
+        	</div>
         </div>
 
     </ui:define>

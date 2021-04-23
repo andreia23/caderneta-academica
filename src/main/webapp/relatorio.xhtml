@@ -17,7 +17,7 @@
             
             <div
 		        class="p-3"
-		        style="border-radius: 20px; box-shadow: 1px 1px 10px #888888; width: 800px">
+		        style="border-radius: 20px; box-shadow: 1px 1px 10px #888888; width: 850px">
             <h:dataTable
                     styleClass="table table-striped table-bordered table-light"
                     value="#{relatorioAlunoBean.alunos}"
@@ -37,17 +37,17 @@
                     </h:outputText>
                 </h:column>
 
-                <h:column>
+                <h:column headerClass="text-center">
                     <f:facet name="header" style="color: #868B90">Nota 1</f:facet>
                     #{estudante.nota1}
                 </h:column>
 
-                <h:column>
+                <h:column headerClass="text-center">
                     <f:facet name="header" style="color: #868B90">Nota 2</f:facet>
                     #{estudante.nota2}
                 </h:column>
 
-                <h:column>
+                <h:column headerClass="text-center">
                     <f:facet name="header" style="color: #868B90">Nota 3</f:facet>
                     #{estudante.nota3}
                 </h:column>
@@ -69,7 +69,7 @@
 
                 <h:column>
                     <f:facet name="header" style="color: #868B90">Situação</f:facet>
-                    #{estudante.situacao}
+                    #{relatorioAlunoBean.situacao(estudante.situacao)}
                 </h:column>
 
             </h:dataTable>

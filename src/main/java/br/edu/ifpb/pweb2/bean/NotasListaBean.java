@@ -32,42 +32,37 @@ public class NotasListaBean extends GenericAcademicoBean implements Serializable
         return alunos;
     }
 
-    public String formatarData(Date dt)
-    {
+    public String formatarData(Date dt) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(dt);
     }
 
-    public String editar(Aluno a)
-    {
+    public String editar(Aluno a) {
         this.putFlash("editarAluno", a);
         return "/notas/editar?faces-redirect=true";
     }
 
     public String salvar() {
-        for (Aluno a: this.alunos)
-        {
+        for (Aluno a : this.alunos) {
             Double media = a.getMedia();
-            if (a.getNotaFinal() != null) {
+            if (a.getNotaFinal() != null && media != null) {
                 double nota = ((media * 60) + (a.getNotaFinal().doubleValue() * 40)) / 100;
                 if (nota >= 50) {
                     a.setSituacao(Situations.AP);
-                }
-                else {
+                } else {
                     a.setSituacao(Situations.RP);
                 }
-            } else if (media != null && a.getFaltas() != null) {
+            } else if (a.getFaltas() != null) {
                 if (a.getFaltas() >= 25) {
                     a.setSituacao(Situations.RF);
-                }
-                else if (media < 40) {
-                    a.setSituacao(Situations.RP);
-                }
-                else if (media < 70) {
-                    a.setSituacao(Situations.FN);
-                }
-                else {
-                    a.setSituacao(Situations.AP);
+                } else if (media != null) {
+                    if (media < 40) {
+                        a.setSituacao(Situations.RP);
+                    } else if (media < 70) {
+                        a.setSituacao(Situations.FN);
+                    } else {
+                        a.setSituacao(Situations.AP);
+                    }
                 }
             }
 

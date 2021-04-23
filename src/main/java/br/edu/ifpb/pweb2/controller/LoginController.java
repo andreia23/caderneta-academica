@@ -1,6 +1,7 @@
 package br.edu.ifpb.pweb2.controller;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -23,6 +24,11 @@ public class LoginController implements Serializable {
 	}
 
 	private PasswordUtil passwordUtil;
+
+	public List<UsuarioAdmin> findAll()
+	{
+		return this.usuarioDAO.findAll();
+	}
 
 	public UsuarioAdmin isValido(String usuario, String senha) {
 

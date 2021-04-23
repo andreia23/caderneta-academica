@@ -33,7 +33,7 @@ public class AlunosListaBean extends GenericAcademicoBean implements Serializabl
       return null;
     }
 
-    public String editarrAluno(Aluno aluno) {
+    public String editarAluno(Aluno aluno) {
       this.putFlash("aluno", aluno);
       return "form-estudante?faces-redirect=true";
     }

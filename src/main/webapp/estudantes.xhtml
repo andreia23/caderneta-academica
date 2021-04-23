@@ -26,19 +26,22 @@
             </h:column>
 
             <h:column style="color: #868B90">
+
               <f:facet name="header">Nome</f:facet>
               #{estudante.nome}
             </h:column>
 
             <h:column>
               <f:facet name="header" style="color: #868B90">Data Nascimento</f:facet>
+
               <h:outputText value="#{estudante.dataNascimento}" >
                 <f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy" />
               </h:outputText>
             </h:column>
 
             <h:column footerClass="d-flex justify-content-around">
-              <f:facet name="header" style="color: #868B90">Ações</f:facet>
+
+              <f:facet name="header">Ações</f:facet>
 
               <div class="d-flex justify-content-around">
                 <h:commandButton

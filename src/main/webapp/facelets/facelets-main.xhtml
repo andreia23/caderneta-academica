@@ -32,13 +32,12 @@
                   <a class="nav-link" href="relatorio.xhtml">Relatório</a>
                 </li>
               </ul>
-
-            </h:form>
-            
+			
               <div>
-                <h:outputText class="ml-2" value="#{userSessionBean.admin.username}" />
-                <h:commandLink action="#{userSessionBean.efetuarLogout}" value="Sair" style="color: #fff"/>
+                <h:outputText class="ml-2" value="#{loginBean.usuarioLogado.nome}" />
+                <h:commandLink action="#{sessionScope.logout}" value="Sair"/>
               </div>
+            </h:form>
           </nav>
         </header>
 

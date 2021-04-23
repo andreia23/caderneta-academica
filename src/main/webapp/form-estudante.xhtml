@@ -12,6 +12,7 @@
         <h:form id="form-container" styleClass="mt-3 bg-white text-light d-flex align-items-center flex-column w-25 p-5" style="border-radius: 20px; box-shadow: 1px 1px 10px #888888">
           <h:messages infoStyle="color: aqua"/>
           <div class="mb-3 w-100" style="color: #868B90">
+
             <h:outputLabel for="nome" value="Nome" styleClass="form-label" />
             <h:inputText
                 value="#{formEstudantesBean.estudante.nome}"
@@ -22,6 +23,7 @@
           </div>
 
           <div class="mb-4 w-100" style="color: #868B90">
+
             <h:outputLabel for="dataNasc" value="Data Nascimento" styleClass="form-label" />
             <h:inputText
                 value="#{formEstudantesBean.estudante.dataNascimento}"
@@ -29,6 +31,7 @@
                 requiredMessage="Data é obrigatório"
                 styleClass="form-control" id="dataNasc"
                 style="border-radius: 20px">
+
               <f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy" />
               <f:passThroughAttribute name="placeholder" value="01/01/1970" />
             </h:inputText>
@@ -39,6 +42,7 @@
             
           </div>
           <div class="mb-4 w-100 d-flex justify-content-center"><h:commandButton action="#{formEstudantesBean.cadastrarOuAlterarAluno}" styleClass="btn btn-primary" value="Salvar" style="border-radius: 20px; width: 300px"/></div>
+
         </h:form>
       </div>
     </ui:define>

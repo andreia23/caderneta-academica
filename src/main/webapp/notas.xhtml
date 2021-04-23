@@ -9,7 +9,7 @@
     <ui:define name="main">
     <h:messages />
       <div class="h-100 d-flex justify-content-center align-items-center bg-light text-light">
-        
+       
         <h:form 
         id="form-table" 
         class="w-60 p-3"
@@ -21,16 +21,19 @@
               style="border-radius: 20px; color: #547E9E">
 
             <h:column style="color: #868B90">
+
               <f:facet name="header">ID</f:facet>
               #{estudante.id}
             </h:column>
 
             <h:column style="color: #868B90">
+
               <f:facet name="header">Nome</f:facet>
               #{estudante.nome}
             </h:column>
 
             <h:column style="color: #868B90">
+
               <f:facet name="header">Data Nascimento</f:facet>
               <h:outputText value="#{estudante.dataNascimento}" >
                 <f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy" />
@@ -38,6 +41,7 @@
             </h:column>
 
             <h:column style="color: #868B90">
+
               <f:facet name="header">Nota 1</f:facet>
 			  <h:inputText
 			  	style="width: 5em;"
@@ -48,6 +52,7 @@
             </h:column>
           
           	<h:column style="color: #868B90">
+
               <f:facet name="header">Nota 2</f:facet>
 			  <h:inputText
 			  	style="width: 5em;"
@@ -58,6 +63,7 @@
           	</h:column>
           	
           	<h:column style="color: #868B90">
+
               <f:facet name="header">Nota 3</f:facet>
 			  <h:inputText
 			  	style="width: 5em;"
@@ -68,6 +74,7 @@
           	</h:column>
           	
           	<h:column style="color: #868B90">
+
               <f:facet name="header">Faltas</f:facet>
 			  <h:inputText
 			  	style="width: 5em;"
@@ -78,6 +85,7 @@
           	</h:column>
           	
           	<h:column style="color: #868B90">
+
               <f:facet name="header">Nota final</f:facet>
 			  <h:inputText
 			  	style="width: 5em;"
@@ -89,6 +97,7 @@
           	</h:column>
           	
           	<h:column style="color: #868B90">
+
               <f:facet name="header">Ações</f:facet>
                 <h:commandButton
                     action="#{formNotasBean.atualizarBoletim(estudante)}"

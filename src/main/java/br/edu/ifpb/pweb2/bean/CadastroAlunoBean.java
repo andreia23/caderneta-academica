@@ -45,7 +45,7 @@ public class CadastroAlunoBean extends GenericAcademicoBean implements Serializa
 		aluno = new Aluno();
 
 		// Retorna para mesma página
-		return "consulta?faces-redirect=true";
+		return "estudantes?faces-redirect=true";
 	}
 
 	public Aluno getAluno() {

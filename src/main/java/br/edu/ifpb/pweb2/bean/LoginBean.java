@@ -2,6 +2,7 @@ package br.edu.ifpb.pweb2.bean;
 
 import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -27,7 +28,7 @@ public class LoginBean extends GenericAcademicoBean implements Serializable {
 		String proxView = null;
 		if ((usuarioLogado = loginController.isValido(usuario, senha)) != null) {
 			this.setValueOf("#{sessionScope.loginUser}", String.class, usuarioLogado.getNome());
-			proxView = "/contato/consulta?faces-redirect=true";
+			proxView = "/main?faces-redirect=true";
 		} else {
 			this.addErrorMessage("Login inv�lido.");
 		}

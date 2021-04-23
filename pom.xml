@@ -14,8 +14,27 @@
 	<maven.compiler.target>1.8</maven.compiler.target>
 	<failOnMissingWebXml>false</failOnMissingWebXml>
 </properties>
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
 
 <dependencies>
+	<dependency>
+		<groupId>org.primefaces</groupId>
+		<artifactId>primefaces</artifactId>
+		<version>6.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.primefaces.themes</groupId>
+		<artifactId>all-themes</artifactId>
+		<version>1.0.10</version>
+	</dependency>
+
 	<dependency>
 		<groupId>jakarta.platform</groupId>
 		<artifactId>jakarta.jakartaee-api</artifactId>
@@ -23,7 +42,6 @@
 		<scope>provided</scope>
 	</dependency>
 </dependencies>
-  
   
   
 </project>

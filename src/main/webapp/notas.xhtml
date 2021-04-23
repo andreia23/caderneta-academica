@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<body>
+  <ui:composition template="facelets/facelets-main.xhtml">
+    <ui:define name="main">
+
+      <div class="h-100 d-flex justify-content-center align-items-center bg-light text-light">
+        <h:form
+        id="form-table"
+        class="w-60 p-3"
+        style="border-radius: 20px; box-shadow: 1px 1px 10px #888888; width: 900px">
+          <h:messages closable="true"
+                      styleClass="list-group"
+                      errorClass="list-group-item bg-danger text-light "
+                      infoClass="list-group-item alert alert-info "
+                      warnClass="list-group-item alert alert-warning"
+                      fatalClass="list-group-item alert alert-danger"
+                      style="height: 10em; overflow-y: auto"
+          />
+          <h:dataTable
+              styleClass="table table-striped table-bordered table-light"
+              value="#{notasListaBean.alunos}"
+              var="estudante"
+              style="border-radius: 20px; color: #547E9E">
+
+            <h:column style="color: #868B90">
+
+              <f:facet name="header">ID</f:facet>
+              #{estudante.id}
+            </h:column>
+
+            <h:column style="color: #868B90">
+
+              <f:facet name="header">Nome</f:facet>
+              #{estudante.nome}
+            </h:column>
+
+            <h:column style="color: #868B90">
+
+              <f:facet name="header">Data Nascimento</f:facet>
+              <h:outputText value="#{estudante.dataNascimento}" >
+                <f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy" />
+              </h:outputText>
+            </h:column>
+
+            <h:column style="color: #868B90">
+
+              <f:facet name="header">Nota 1</f:facet>
+                <h:inputText styleClass="form-control" name="nota1" id="nota1" value="#{estudante.nota1}"
+                             validatorMessage="Nota 1: Informe um número entre 0 e 100.">
+                    <f:validateLongRange minimum="0" maximum="100"/>
+                </h:inputText>
+            </h:column>
+
+          	<h:column style="color: #868B90">
+
+              <f:facet name="header">Nota 2</f:facet>
+                <h:inputText styleClass="form-control" name="nota2" id="nota2" value="#{estudante.nota2}"
+                             validatorMessage="Nota 2: Informe um número entre 0 e 100.">
+                    <f:validateLongRange minimum="0" maximum="100"/>
+                </h:inputText>
+          	</h:column>
+
+          	<h:column style="color: #868B90">
+
+              <f:facet name="header">Nota 3</f:facet>
+                <h:inputText styleClass="form-control" name="nota3" id="nota3"
+                             value="#{estudante.nota3}"
+                             validatorMessage="Nota 3: Informe um número entre 0 e 100.">
+                    <f:validateLongRange minimum="0" maximum="100"/>
+                </h:inputText>
+          	</h:column>
+
+          	<h:column style="color: #868B90">
+
+              <f:facet name="header">Faltas</f:facet>
+                <h:inputText styleClass="form-control" name="faltas" id="faltas"
+                             value="#{estudante.faltas}"
+                             validatorMessage="Faltas: Informe um número entre 0 e 100.">
+                    <f:validateLongRange minimum="0" maximum="100"/>
+                </h:inputText>
+          	</h:column>
+
+          	<h:column style="color: #868B90">
+
+              <f:facet name="header">Nota final</f:facet>
+                <h:inputText value="#{estudante.notaFinal}" styleClass="form-control" name="notaFinal"
+                             id="notaFinal"
+                             validatorMessage="Final: Informe um número entre 0 e 100.">
+                    <f:validateLongRange minimum="0" maximum="100"/>
+                </h:inputText>
+          	</h:column>
+
+          </h:dataTable>
+          <h:commandButton
+                  action="#{notasListaBean.salvar(estudante)}"
+                  styleClass="btn btn-primary float-right" value="Salvar" >
+          </h:commandButton>
+
+        </h:form>
+      </div>
+    </ui:define>
+  </ui:composition>
+</body>
+</html>

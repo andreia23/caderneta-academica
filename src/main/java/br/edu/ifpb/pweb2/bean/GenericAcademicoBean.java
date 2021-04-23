@@ -8,10 +8,14 @@ import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 public class GenericAcademicoBean {
-
+	
+	@Inject
+	private LoginBean loginBean;
+	
 	protected void addMessage(String mensagem, Severity severidade) {
 		FacesMessage fm = new FacesMessage(mensagem);
 		fm.setSeverity(severidade);
@@ -58,6 +62,21 @@ public class GenericAcademicoBean {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
         ((HttpSession)facesContext.getExternalContext().getSession(false)).invalidate();
 	}
+
+	/**
+	 * @return the loginBean
+	 */
+	public LoginBean getLoginBean() {
+		return loginBean;
+	}
+
+	/**
+	 * @param loginBean the loginBean to set
+	 */
+	public void setLoginBean(LoginBean loginBean) {
+		this.loginBean = loginBean;
+	}
+	
 	
 
 }

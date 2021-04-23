@@ -1,0 +1,5 @@
+body
+{
+    background-color: #F2F2F2;
+    height: 100vh; /* tamanho da tela toda para poder alinhar no centro com display-flex */
+}

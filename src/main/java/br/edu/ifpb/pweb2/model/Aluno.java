@@ -10,13 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+import java.util.ArrayList;
+import java.util.Date;
 @Entity
 public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
 	private String nome;
@@ -44,6 +45,7 @@ public class Aluno implements Serializable {
 		super();
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
+		this.situacao = Situations.MT;
 	}
 
 	/**
@@ -170,6 +172,16 @@ public class Aluno implements Serializable {
 	 */
 	public void setSituacao(Situations situacao) {
 		this.situacao = situacao;
+	}
+
+	public Double getMedia()
+	{
+		if(this.nota1 != null &&
+			this.nota2 != null &&
+			this.nota3 != null)
+				return (this.nota1.doubleValue() + this.nota2.doubleValue() + this.nota3.doubleValue()) / 3;
+		else
+			return null;
 	}
 
 }

@@ -11,6 +11,7 @@
 		<non-jta-data-source>java:/caderneta-academica</non-jta-data-source>
 		
 		<class>br.edu.ifpb.pweb2.model.Aluno</class>
+		<class>br.edu.ifpb.pweb2.model.UsuarioAdmin</class>
 		
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />

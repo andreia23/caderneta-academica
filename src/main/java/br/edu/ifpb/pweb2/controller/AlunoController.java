@@ -46,7 +46,7 @@ public class AlunoController implements Serializable{
 	@Transactional
 	public void saveOrUpdate(Aluno aluno) {
 		if (aluno.getId() != null) {
-			aluno = alunoDAO.update(aluno);
+			alunoDAO.update(aluno);
 		} else {
 			alunoDAO.insert(aluno);
 		}

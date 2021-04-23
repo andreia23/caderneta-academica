@@ -16,19 +16,19 @@ public class GenericAcademicoBean {
 	@Inject
 	private LoginBean loginBean;
 	
-	protected void addMessage(String mensagem, Severity severidade) {
+	protected void addMessage(String mensagem, Severity severidade, String id) {
 		FacesMessage fm = new FacesMessage(mensagem);
 		fm.setSeverity(severidade);
 		FacesContext fc = FacesContext.getCurrentInstance();
-		fc.addMessage(null, fm);
+		fc.addMessage(id, fm);
 	}
 
-	protected void addInfoMessage(String mensagem) {
-		this.addMessage(mensagem, FacesMessage.SEVERITY_INFO);
+	protected void addInfoMessage(String mensagem, String id) {
+		this.addMessage(mensagem, FacesMessage.SEVERITY_INFO, id);
 	}
 
-	protected void addErrorMessage(String mensagem) {
-		this.addMessage(mensagem, FacesMessage.SEVERITY_ERROR);
+	protected void addErrorMessage(String mensagem, String id) {
+		this.addMessage(mensagem, FacesMessage.SEVERITY_ERROR, id);
 	}
 
 	protected void putFlash(String nome, Object valor) {

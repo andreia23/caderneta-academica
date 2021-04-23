@@ -4,9 +4,6 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<h:head>
-	<h:outputStylesheet library="bootstrap" name="css/bootstrap.css" target="head" />
-</h:head>
 <body>
 <ui:composition template="/facelets/facelets-page.xhtml">
   <ui:define name="page">
@@ -31,6 +28,7 @@
                 <h:inputSecret value="#{loginBean.usuarioLogado.senha}" class="form-control" id="password" style="border-radius: 20px" />
               </div>
 
+                <h:messages for="form-container" errorClass="alert alert-danger w-100" styleClass="w-100" style="list-style: none; padding: 0"/>
 				<h:commandButton styleClass="btn btn-block submit-button text-light" action="#{loginBean.autenticar}" value="Entrar" style="background-color: #7B8F9E; border-radius: 20px" />
             </h:form>
           </div>

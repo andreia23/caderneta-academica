@@ -10,7 +10,7 @@
       <div id="main" class="h-100 d-flex flex-column justify-content-center align-items-center bg-light">
 
         <h:form id="form-container" styleClass="mt-3 bg-white d-flex align-items-center flex-column w-25 p-5" style="border-radius: 20px; box-shadow: 1px 1px 10px #888888">
-          <h:messages infoStyle="color: #868B90"/>
+          <h:messages for="form-container" style="list-style: none; padding:0;width: 100%" errorClass="alert alert-danger w-100" infoStyle="color: #868B90"/>
           <div class="mb-3 w-100" style="color: #868B90">
 
             <h:outputLabel for="nome" value="Nome" styleClass="form-label" />
@@ -20,6 +20,7 @@
                 requiredMessage="Informe o nome"
                 styleClass="form-control" id="nome" placeholder="John Doe" 
                 style="border-radius: 20px"/>
+            <h:messages for="form-container:nome" styleClass="small" style="list-style: none; padding:0;" errorClass="text-danger" />
           </div>
 
           <div class="mb-4 w-100" style="color: #868B90">
@@ -29,19 +30,25 @@
                 value="#{cadAlunoBean.aluno.dataNascimento}"
                 required="true"
                 requiredMessage="Informe a data"
+                converterMessage="Insira data no formato: DD/MM/AAAA"
                 styleClass="form-control" id="dataNasc"
-                style="border-radius: 20px"> 
+                style="border-radius: 20px"
+            >
 
-              <f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy" />
-              <f:passThroughAttribute name="placeholder" value="01/01/1970" />
+              <f:convertDateTime timeZone="Brazil/West" pattern="dd/MM/yyyy" />
             </h:inputText>
+            <h:messages for="form-container:dataNasc" styleClass="small" errorClass="text-danger" style="list-style: none; padding:0;" />
+            <small id="passwordHelpBlock" class="form-text text-muted">
+              ##/##/####
+            </small>
           </div>
 
           <div class="mb-4 w-100 d-flex justify-content-center">
             <button type="button" class="mx-0 btn btn-secondary" data-dismiss="modal" style="border-radius: 20px; width: 300px">Cancelar</button>
-            
           </div>
-          <div class="mb-4 w-100 d-flex justify-content-center"><h:commandButton action="#{cadAlunoBean.cadastrar}" styleClass="btn btn-primary" value="Salvar" style="border-radius: 20px; width: 300px"/></div>
+          <div class="mb-4 w-100 d-flex justify-content-center">
+            <h:commandButton action="#{cadAlunoBean.cadastrar}" styleClass="btn btn-primary" value="Salvar" style="border-radius: 20px; width: 300px"/>
+          </div>
 
         </h:form>
       </div>

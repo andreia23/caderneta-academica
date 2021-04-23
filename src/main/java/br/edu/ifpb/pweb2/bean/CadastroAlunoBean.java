@@ -36,9 +36,9 @@ public class CadastroAlunoBean extends GenericAcademicoBean implements Serializa
 
 		this.keepMessages();
 		if (id == null) {
-			this.addInfoMessage("Aluno cadatrado com sucesso!");
+			this.addInfoMessage("Aluno cadatrado com sucesso!", null);
 		} else {
-			this.addInfoMessage("Aluno atualizado com sucesso!");
+			this.addInfoMessage("Aluno atualizado com sucesso!", null);
 		}
 
 		// Limpa objeto do formulário

@@ -35,7 +35,7 @@ public class LoginBean extends GenericAcademicoBean implements Serializable {
 				proxView = "/main?faces-redirect=true";
 			}
 			else {
-				this.addErrorMessage("Login inválido.");
+				this.addErrorMessage("Login inválido.", "form-container");
 			}
 		}
 

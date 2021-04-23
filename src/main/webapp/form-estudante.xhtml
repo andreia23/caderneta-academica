@@ -15,7 +15,7 @@
 
             <h:outputLabel for="nome" value="Nome" styleClass="form-label" />
             <h:inputText
-                value="#{formEstudantesBean.estudante.nome}"
+                value="#{cadastroAlunoBean.aluno.nome}"
                 required="true"
                 requiredMessage="Informe o nome"
                 styleClass="form-control" id="nome" placeholder="John Doe" 
@@ -26,7 +26,7 @@
 
             <h:outputLabel for="dataNasc" value="Data Nascimento" styleClass="form-label" />
             <h:inputText
-                value="#{formEstudantesBean.estudante.dataNascimento}"
+                value="#{cadastroAlunoBean.aluno.dataNascimento}"
                 required="true"
                 requiredMessage="Informe a data"
                 styleClass="form-control" id="dataNasc"
@@ -41,7 +41,7 @@
             <button type="button" class="mx-0 btn btn-secondary" data-dismiss="modal" style="border-radius: 20px; width: 300px">Cancelar</button>
             
           </div>
-          <div class="mb-4 w-100 d-flex justify-content-center"><h:commandButton action="#{formEstudantesBean.cadastrarOuAlterarAluno}" styleClass="btn btn-primary" value="Salvar" style="border-radius: 20px; width: 300px"/></div>
+          <div class="mb-4 w-100 d-flex justify-content-center"><h:commandButton action="#{estudante.cadastrar}" styleClass="btn btn-primary" value="Salvar" style="border-radius: 20px; width: 300px"/></div>
 
         </h:form>
       </div>

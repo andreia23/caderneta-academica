@@ -15,7 +15,10 @@
               <span class="navbar-toggler-icon"></span>
             </button>
 
-            <h:form class="collapse navbar-collapse d-flex justify-content-center">
+            <h:form class="collapse navbar-collapse d-flex justify-content-between">
+            <div class="text-light">
+            <p>Projeto Atena</p>
+            </div>
               <ul class="navbar-nav justify-content-center">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#"
@@ -34,8 +37,8 @@
               </ul>
 			
               <div>
-                <h:outputText class="ml-2" value="#{loginBean.usuarioLogado.nome}" />
-                <h:commandLink action="#{sessionScope.logout}" value="Sair"/>
+                <h:outputText value="#{loginBean.usuarioLogado.nome}" />
+                <h:commandLink class="text-light" action="#{sessionScope.logout}" value="Sair"/>
               </div>
             </h:form>
           </nav>

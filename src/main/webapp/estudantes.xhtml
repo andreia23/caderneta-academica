@@ -10,30 +10,37 @@
       <div class="h-100 d-flex flex-column justify-content-center align-items-center bg-light text-light">
         <h:messages />
 
-        <h:form id="form-table" class="w-50 text-dark">
+        <h:form 
+        id="form-table" 
+        class="w-50 p-3" 
+        style="border-radius: 20px; box-shadow: 1px 1px 10px #888888; width: 800px">
           <h:dataTable
-              styleClass="table table-striped table-bordered table-dark"
+              styleClass="table table-striped table-bordered table-light"
               value="#{listagemEstudantesBean.estudantes}"
-              var="estudante">
+              var="estudante"
+              style="border-radius: 20px; color: #547E9E">
 
             <h:column>
-              <f:facet name="header">ID</f:facet>
+              <f:facet name="header" style="color: #868B90">ID</f:facet>
               #{estudante.id}
             </h:column>
 
-            <h:column>
+            <h:column style="color: #868B90">
+
               <f:facet name="header">Nome</f:facet>
               #{estudante.nome}
             </h:column>
 
             <h:column>
-              <f:facet name="header">Data Nascimento</f:facet>
+              <f:facet name="header" style="color: #868B90">Data Nascimento</f:facet>
+
               <h:outputText value="#{estudante.dataNascimento}" >
                 <f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy" />
               </h:outputText>
             </h:column>
 
             <h:column footerClass="d-flex justify-content-around">
+
               <f:facet name="header">Ações</f:facet>
 
               <div class="d-flex justify-content-around">
@@ -48,11 +55,14 @@
             </h:column>
           </h:dataTable>
 
+        </h:form>
+        <div class="p-3">
           <h:commandButton
               action="form-estudante?faces-redirect=true"
-              styleClass="btn btn-block btn-primary"
-              value="Cadastrar novo estudante" />
-        </h:form>
+              styleClass="btn btn-block text-light"
+              value="Cadastrar novo estudante"
+              style="background-color: #7B8F9E; border-radius: 20px; width: 300px" />
+        </div>
       </div>
     </ui:define>
   </ui:composition>

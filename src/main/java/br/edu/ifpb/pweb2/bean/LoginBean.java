@@ -29,26 +29,29 @@ public class LoginBean extends GenericAcademicoBean implements Serializable {
 		String proxView = null;
 		
 		if (loginController.isValido(usuarioLogado.getNome(), usuarioLogado.getSenha()) == null) {
-			loginController.insert(usuarioLogado);
-			proxView = "/main?faces-redirect=true";
-
+			if(loginController.findAll().isEmpty())
+			{
+				loginController.insert(usuarioLogado);
+				proxView = "/main?faces-redirect=true";
+			}
+			else {
+				this.addErrorMessage("Login inválido.");
+			}
 		}
 
-		else if ((usuarioLogado = loginController.isValido(usuarioLogado.getNome(), usuarioLogado.getSenha())) != null) {
+		else {
 			this.setValueOf("#{sessionScope.loginUser}", String.class, usuarioLogado.getNome());
 			proxView = "/main?faces-redirect=true";
 		}
 
-		else {
-			this.addErrorMessage("Login inv�lido.");
-		}
+
 
 		return proxView;
 	}
 
 	public String logout() {
 		this.invalidateSession();
-		return "/login/login?faces-redirect=true";
+		return "/login?faces-redirect=true";
 	}
 
 	public String getUsuario() {

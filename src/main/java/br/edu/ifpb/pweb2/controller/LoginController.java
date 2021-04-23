@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
+import br.edu.ifpb.pweb2.cdi.Transactional;
 import br.edu.ifpb.pweb2.dao.UsuarioAdminDAO;
 import br.edu.ifpb.pweb2.model.UsuarioAdmin;
+import br.edu.ifpb.pweb2.util.PasswordUtil;
 
 
 public class LoginController implements Serializable {
@@ -14,10 +16,17 @@ public class LoginController implements Serializable {
 	@Inject
 	private UsuarioAdminDAO usuarioDAO;
 	
+	@Transactional
+	public UsuarioAdmin insert(UsuarioAdmin admin) {
+		return usuarioDAO.insert(admin);
+	}
+	
+	private PasswordUtil passwordUtil;
+	
 	public UsuarioAdmin isValido(String usuario, String senha) {
-
+		String encrip = (passwordUtil.encryptMD5(senha));
 		UsuarioAdmin user = usuarioDAO.findByLogin(usuario);
-		if (user == null || !senha.equals(user.getSenha())) {
+		if (user == null || !encrip.equals(user.getSenha())) {
 			user = null;
 		}
 

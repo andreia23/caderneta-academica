@@ -2,6 +2,7 @@ package br.edu.ifpb.pweb2.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +12,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.ArrayList;
 import java.util.Date;
-
 @Entity
 public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -36,19 +36,17 @@ public class Aluno implements Serializable {
 	private BigDecimal notaFinal;
 
 	private Situations situacao;
-	
-	
+
 	public Aluno() {
-		
+
 	}
-		
+
 	public Aluno(String nome, Date dataNascimento) {
 		super();
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.situacao = Situations.MT;
 	}
-
 
 	/**
 	 * @return the id

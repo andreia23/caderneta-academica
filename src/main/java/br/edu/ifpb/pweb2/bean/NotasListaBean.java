@@ -32,16 +32,6 @@ public class NotasListaBean extends GenericAcademicoBean implements Serializable
         return alunos;
     }
 
-    public String formatarData(Date dt) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        return sdf.format(dt);
-    }
-
-    public String editar(Aluno a) {
-        this.putFlash("editarAluno", a);
-        return "/notas/editar?faces-redirect=true";
-    }
-
     public String salvar() {
         for (Aluno a : this.alunos) {
             Double media = a.getMedia();
@@ -65,8 +55,6 @@ public class NotasListaBean extends GenericAcademicoBean implements Serializable
                     }
                 }
             }
-
-
             this.controllerAluno.saveOrUpdate(a);
         }
         return "/notas?faces-redirect=true";

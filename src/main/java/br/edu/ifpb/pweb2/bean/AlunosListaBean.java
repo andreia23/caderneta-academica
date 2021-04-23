@@ -41,17 +41,6 @@ public class AlunosListaBean extends GenericAcademicoBean implements Serializabl
         return alunos;
     }
 
-    public String formatarData(Date dt)
-    {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        return sdf.format(dt);
-    }
-
-    public String editar(Aluno a)
-    {
-        this.putFlash("editarAluno", a);
-        return "/notas/editar?faces-redirect=true";
-    }
     public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
       }

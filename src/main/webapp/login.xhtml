@@ -10,25 +10,29 @@
     <div class="col container-fluid h-100 d-flex justify-content-center align-items-center" style="background-color: #CEDEEA">
       <div class="col h-100 p-5">
         <section class="d-flex justify-content-center align-items-center">
-          <h1 class="mb-3 text-light">Caderneta Acadêmica</h1>
+          <h1 class="mb-3 text-light">Projeto Atena</h1>
         </section>
 
         <section class="col">
           <div class="w-100 h-100 d-flex justify-content-center align-items-center">
             <h:form id="form-container" class="bg-light d-flex align-items-center flex-column w-70 p-5" style="border-radius: 20px">
+              <h:messages for="form-container" errorClass="alert alert-danger alert-dismissable w-100" styleClass="w-100" style="list-style: none; padding: 0"/>
 
 
               <div class="mb-3 w-100" style="color: #868B90">
                 <h:outputLabel for="nome" value="Username" class="form-label" />
-                <h:inputText value="#{loginBean.usuarioLogado.nome}" class="form-control" id="nome" placeholder="nome" style="border-radius: 20px" />
+                <h:inputText value="#{loginBean.usuarioLogado.nome}" class="form-control" id="nome" placeholder="nome" style="border-radius: 20px" required="true"
+                             requiredMessage="Insira um nome de usuário."/>
+                <h:messages for="form-container:nome" styleClass="small" errorClass="text-danger" style="list-style: none; padding:0;" />
               </div>
 
               <div class="mb-4 w-100" style="color: #868B90">
                 <h:outputLabel for="password" value="Senha" class="form-label" />
-                <h:inputSecret value="#{loginBean.usuarioLogado.senha}" class="form-control" id="password" style="border-radius: 20px" />
+                <h:inputSecret value="#{loginBean.usuarioLogado.senha}" class="form-control" id="password" style="border-radius: 20px" required="true"
+                requiredMessage="Insira uma senha."/>
+                <h:messages for="form-container:password" styleClass="small" errorClass="text-danger" style="list-style: none; padding:0;" />
               </div>
 
-                <h:messages for="form-container" errorClass="alert alert-danger w-100" styleClass="w-100" style="list-style: none; padding: 0"/>
 				<h:commandButton styleClass="btn btn-block submit-button text-light" action="#{loginBean.autenticar}" value="Entrar" style="background-color: #7B8F9E; border-radius: 20px" />
             </h:form>
           </div>

@@ -7,17 +7,17 @@
 <body>
   <ui:composition template="facelets/facelets-main.xhtml">
     <ui:define name="main">
-      <div id="main" class="h-100 d-flex flex-column justify-content-center align-items-center bg-light text-light">
+      <div id="main" class="h-100 d-flex flex-column justify-content-center align-items-center bg-light">
 
-        <h:form id="form-container" styleClass="mt-3 bg-white text-light d-flex align-items-center flex-column w-25 p-5" style="border-radius: 20px; box-shadow: 1px 1px 10px #888888">
-          <h:messages infoStyle="color: aqua"/>
+        <h:form id="form-container" styleClass="mt-3 bg-white d-flex align-items-center flex-column w-25 p-5" style="border-radius: 20px; box-shadow: 1px 1px 10px #888888">
+          <h:messages infoStyle="color: #868B90"/>
           <div class="mb-3 w-100" style="color: #868B90">
 
             <h:outputLabel for="nome" value="Nome" styleClass="form-label" />
             <h:inputText
-                value="#{formEstudantesBean.estudante.nome}"
+                value="#{cadAlunoBean.aluno.nome}"
                 required="true"
-                requiredMessage="Nome é obrigatório"
+                requiredMessage="Informe o nome"
                 styleClass="form-control" id="nome" placeholder="John Doe" 
                 style="border-radius: 20px"/>
           </div>
@@ -26,11 +26,11 @@
 
             <h:outputLabel for="dataNasc" value="Data Nascimento" styleClass="form-label" />
             <h:inputText
-                value="#{formEstudantesBean.estudante.dataNascimento}"
+                value="#{cadAlunoBean.aluno.dataNascimento}"
                 required="true"
-                requiredMessage="Data é obrigatório"
+                requiredMessage="Informe a data"
                 styleClass="form-control" id="dataNasc"
-                style="border-radius: 20px">
+                style="border-radius: 20px"> 
 
               <f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy" />
               <f:passThroughAttribute name="placeholder" value="01/01/1970" />
@@ -41,7 +41,7 @@
             <button type="button" class="mx-0 btn btn-secondary" data-dismiss="modal" style="border-radius: 20px; width: 300px">Cancelar</button>
             
           </div>
-          <div class="mb-4 w-100 d-flex justify-content-center"><h:commandButton action="#{formEstudantesBean.cadastrarOuAlterarAluno}" styleClass="btn btn-primary" value="Salvar" style="border-radius: 20px; width: 300px"/></div>
+          <div class="mb-4 w-100 d-flex justify-content-center"><h:commandButton action="#{cadAlunoBean.cadastrar}" styleClass="btn btn-primary" value="Salvar" style="border-radius: 20px; width: 300px"/></div>
 
         </h:form>
       </div>

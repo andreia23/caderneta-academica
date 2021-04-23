@@ -12,11 +12,14 @@
 
         <h:form 
         id="form-table" 
-        class="w-50 p-3" 
+        class="w-50 p-3 d-flex flex-column justify-content-center align-items-center border-none">
+        <div
+        class="p-3"
         style="border-radius: 20px; box-shadow: 1px 1px 10px #888888; width: 800px">
+        
           <h:dataTable
               styleClass="table table-striped table-bordered table-light"
-              value="#{listagemEstudantesBean.estudantes}"
+              value="#{alunosListaBean.alunos}"
               var="estudante"
               style="border-radius: 20px; color: #547E9E">
 
@@ -45,17 +48,17 @@
 
               <div class="d-flex justify-content-around">
                 <h:commandButton
-                    action="#{listagemEstudantesBean.excluirAluno(estudante)}"
+                    action="#{alunosListaBean.excluirAluno(estudante)}"
                     styleClass="btn btn-secondary" value="Excluir" />
 
                 <h:commandButton
-                    action="#{listagemEstudantesBean.carregarAluno(estudante)}"
+                    action="#{alunosListaBean.editarAluno(estudante)}"
                     styleClass="btn btn-primary" value="Alterar" />
               </div>
             </h:column>
           </h:dataTable>
+        </div>
 
-        </h:form>
         <div class="p-3">
           <h:commandButton
               action="form-estudante?faces-redirect=true"
@@ -63,6 +66,7 @@
               value="Cadastrar novo estudante"
               style="background-color: #7B8F9E; border-radius: 20px; width: 300px" />
         </div>
+        </h:form>
       </div>
     </ui:define>
   </ui:composition>
